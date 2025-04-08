@@ -1,0 +1,35 @@
+.home {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 16px;
+  padding-inline: 10%;
+  background-color: #d5392c;
+  color: #fff;
+}
+
+.home-section {
+  padding-inline: 10%;
+  flex-grow: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+
+  .home-greeting {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  .main {
+    flex-grow: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+}
