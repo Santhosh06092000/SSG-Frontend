@@ -38,3 +38,9 @@
 - **Hook-Form**
 - **zod**
 - **scss**
+
+## Screen Shots
+
+![Welcome Page]("./screenshots/welcomePage.png")
+
+![Game Page]("./screenshots/game_page.png")

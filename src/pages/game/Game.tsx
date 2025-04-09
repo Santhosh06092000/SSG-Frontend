@@ -9,7 +9,6 @@ import { game } from "./IGame";
 import { useMutation } from "@tanstack/react-query";
 import { generateGame } from "../../api/game";
 import AcUnitIcon from "@mui/icons-material/AcUnit";
-import { motion } from "motion/react";
 
 interface GameProps {}
 
@@ -28,7 +27,7 @@ const Game: FunctionComponent<GameProps> = () => {
 
       window.URL.revokeObjectURL(url);
     },
-    onError: (error) => {
+    onError: () => {
       alert("Error generating game. Please try again with valid File.");
     },
   });
