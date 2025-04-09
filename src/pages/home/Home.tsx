@@ -2,13 +2,14 @@ import { decode } from "../../utils/hashing";
 import "./Home.scss";
 import { FunctionComponent, useMemo } from "react";
 import { motion } from "motion/react";
-import { Outlet } from "react-router";
+import { Link, NavLink, Outlet, useNavigate } from "react-router";
 import DelayText from "../../components/delayText/DelayText";
 
 interface HomeProps {}
 
 const Home: FunctionComponent<HomeProps> = () => {
   const user = decode(localStorage.getItem("user"));
+  const nav = useNavigate();
 
   const getGreeting = () => {
     const hour = new Date().getHours();
@@ -24,7 +25,26 @@ const Home: FunctionComponent<HomeProps> = () => {
 
   return (
     <div className="home">
-      <header className="home-header">ANME - Secret Santa Game</header>
+      <header className="home-header">
+        <Link to={"/welcome"} style={{ textDecoration: "none", color: "#fff" }}>
+          ANME - Secret Santa Game
+        </Link>
+
+        <span>
+          <NavLink to={"/game"} style={{ textDecoration: "none" }}>
+            {({ isActive }) => (
+              <span
+                style={{
+                  color: isActive ? "#fff" : "#E5E6EA",
+                  fontWeight: isActive ? "bold" : "normal",
+                }}
+              >
+                Game
+              </span>
+            )}
+          </NavLink>
+        </span>
+      </header>
 
       <section className="home-section">
         <header className="home-greeting">

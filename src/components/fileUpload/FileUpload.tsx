@@ -49,6 +49,7 @@ const FileUpload: FunctionComponent<FileUploadProps> = (props) => {
                 variant="contained"
                 component="span"
                 endIcon={<UploadFileIcon />}
+                color={error ? "error" : value ? "success" : "primary"}
               >
                 {label}
               </Button>

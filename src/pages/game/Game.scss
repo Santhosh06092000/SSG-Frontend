@@ -4,3 +4,18 @@
   display: flex;
   gap: 1rem;
 }
+
+.rotate-anim {
+  animation: rotate 1s linear infinite;
+  transform-origin: center;
+  color: #fff;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
