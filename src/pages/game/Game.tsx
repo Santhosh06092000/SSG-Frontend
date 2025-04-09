@@ -9,6 +9,7 @@ import { game } from "./IGame";
 import { useMutation } from "@tanstack/react-query";
 import { generateGame } from "../../api/game";
 import AcUnitIcon from "@mui/icons-material/AcUnit";
+import { motion } from "motion/react";
 
 interface GameProps {}
 
@@ -17,11 +18,7 @@ const Game: FunctionComponent<GameProps> = () => {
   const generateGameMutation = useMutation({
     mutationFn: generateGame,
     onSuccess: async (response) => {
-      if (!response.data.status) {
-        alert("Error generating game");
-        return;
-      }
-      const blob = response.data.data;
+      const blob = response.data;
       const url = window.URL.createObjectURL(blob);
       console.log("Download URL:", url);
       const a = document.createElement("a");
