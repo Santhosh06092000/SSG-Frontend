@@ -17,7 +17,7 @@ const Game: FunctionComponent<GameProps> = () => {
   // generate game
   const generateGameMutation = useMutation({
     mutationFn: generateGame,
-    onSuccess: async (response) => {
+    onSuccess: (response) => {
       const blob = response.data;
       const url = window.URL.createObjectURL(blob);
       console.log("Download URL:", url);
@@ -27,6 +27,9 @@ const Game: FunctionComponent<GameProps> = () => {
       a.click();
 
       window.URL.revokeObjectURL(url);
+    },
+    onError: (error) => {
+      alert("Error generating game. Please try again with valid File.");
     },
   });
 
